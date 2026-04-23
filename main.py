@@ -9,10 +9,25 @@
 
 # pseudocode:
 
+
 # Make it store exactly 3 robot names and their assigned delivery zones ("Downtown", "Suburbs", "Industrial") in a dictionary.\
+robots = {}
+zones = ["Downtown", "Suburbs", "Industrial"]
+
+for i in range(3):
+    name = input(f"Enter robot name: ")
+    while True:
+        zone = input(
+            f"Choose a delivery zone for {name} (Downtown, Suburbs, Industrial): "
+        )
+        if zone in zones:
+            break
+        print("Invalid zone. Choose from Downtown, Suburbs, or Industrial.")
+    robots[name] = {"zone": zone}
 
 
 # Gets the total delivery distance (integer 5-500 km).
+
 
 # Gets the cargo weight for each robot (between 1 and 50 kg).
 
@@ -22,3 +37,6 @@
 # If distance is over 300 km, any robot carries more than 50 kg, or the weather is "Storm", print "🚨 Deployment Unsafe!".
 
 # Otherwise, print a summary of robot names, zones, and cargo weights with the message: "🤖 Robots Ready for Delivery!".
+
+
+# Main program
