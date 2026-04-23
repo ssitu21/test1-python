@@ -27,9 +27,30 @@ for i in range(3):
 
 
 # Gets the total delivery distance (integer 5-500 km).
+while True:
+    try:
+        distance = int(input("Enter total delivery distance (5-500 km): "))
+        if 5 <= distance <= 500:
+            print(f"Distance Check: Within Range ({distance} km)")
+            break
+        else:
+            print("Error: Distance must be between 5 and 500 km.")
+    except ValueError:
+        print("Error: Please enter a valid integer.")
 
 
 # Gets the cargo weight for each robot (between 1 and 50 kg).
+for robot_name in robots:
+    while True:
+        try:
+            weight = int(input(f"Enter cargo weight for {robot_name} (1-50 kg): "))
+            if 1 <= weight <= 50:
+                robots[robot_name]["weight"] = weight
+                break
+            else:
+                print("Error: Weight must be between 1 and 50 kg.")
+        except ValueError:
+            print("Error: Please enter a valid integer.")
 
 
 # Gets the weather condition ("Clear", "Rain", "Storm")
