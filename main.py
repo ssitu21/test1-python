@@ -1,0 +1,24 @@
+# Robot  Delivery Team  🤖
+# You're responsible for preparing a fleet of autonomous delivery robots for a major city. Your program will:
+# 1. Collect exactly 3 robot names and assign them one of three predefined delivery zones ("Downtown", "Suburbs", "Industrial").
+# 2. Check the total distance to be covered (integer between 5 and 500 km).
+# 3. Collect the weight of each robot’s cargo (must be between 1 and 50 kg).'
+# 4 .Check if the weather conditions are safe ("Clear", "Rain", "Storm").
+# 5. Determine if the fleet is ready for deployment.
+
+
+# pseudocode:
+
+# Make it store exactly 3 robot names and their assigned delivery zones ("Downtown", "Suburbs", "Industrial") in a dictionary.\
+
+
+# Gets the total delivery distance (integer 5-500 km).
+
+# Gets the cargo weight for each robot (between 1 and 50 kg).
+
+
+# Gets the weather condition ("Clear", "Rain", "Storm")
+
+# If distance is over 300 km, any robot carries more than 50 kg, or the weather is "Storm", print "🚨 Deployment Unsafe!".
+
+# Otherwise, print a summary of robot names, zones, and cargo weights with the message: "🤖 Robots Ready for Delivery!".
