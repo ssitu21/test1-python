@@ -40,7 +40,7 @@ while True:
         else:
             print("Error: Distance must be between 5 and 500 km.")
     except ValueError:
-        print("Error: Please enter a valid integer.")
+        print("Error: Please enter a valid number.")
 
 
 # Gets the cargo weight for each robot (between 1 and 50 kg).
@@ -54,7 +54,7 @@ for robot_name in robots:
             else:
                 print("Error: Weight must be between 1 and 50 kg.")
         except ValueError:
-            print("Error: Please enter a valid integer.")
+            print("Error: Please enter a valid number.")
 
 
 # Gets the weather condition ("Clear", "Rain", "Storm")
@@ -73,7 +73,22 @@ while True:
 print()
 
 
-# If distance is over 300 km, any robot carries more than 50 kg, or the weather is "Storm", print "🚨 Deployment Unsafe!".
+# If distance is over 300 km, any robot carries more than 50 kg, or the weather is "Storm", print "🚨 Deployment Unsafe!". 
+if distance > 300:
+    unsafe = True
+
+
+if weather == "Storm":
+    unsafe = True
+
+for robot in robots:
+    if robots[robot]["weight"] > 50:
+        unsafe = True
+5 and 500 km.")
+    except ValueError:
+        print("Error: Please enter a valid number.")
+
+
 
 # Otherwise, print a summary of robot names, zones, and cargo weights with the message: "🤖 Robots Ready for Delivery!".
 
