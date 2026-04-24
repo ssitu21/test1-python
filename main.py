@@ -15,10 +15,14 @@ robots = {}
 zones = ["Downtown", "Suburbs", "Industrial"]
 
 for i in range(3):
-    name = input(f"Enter robot name: ")
+    name = input(f"Enter robot name: ").strip().title()
     while True:
-        zone = input(
-            f"Choose a delivery zone for {name} (Downtown, Suburbs, Industrial): "
+        zone = (
+            input(
+                f"Choose a delivery zone for {name} (Downtown, Suburbs, Industrial): "
+            )
+            .strip()
+            .title()
         )
         if zone in zones:
             break
@@ -54,6 +58,20 @@ for robot_name in robots:
 
 
 # Gets the weather condition ("Clear", "Rain", "Storm")
+valid_weather = ["Clear", "Rain", "Storm"]
+while True:
+    weather = input("Enter weather conditions (Clear, Rain, Storm): ").strip().title()
+    if weather in valid_weather:
+        if weather == "Storm":
+            print("Weather Check: Unsafe")
+        else:
+            print("Weather Check: Safe")
+        break
+    else:
+        print("Invalid weather condition.")
+
+print()
+
 
 # If distance is over 300 km, any robot carries more than 50 kg, or the weather is "Storm", print "🚨 Deployment Unsafe!".
 
