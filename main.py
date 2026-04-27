@@ -11,11 +11,14 @@
 
 
 # Make it store exactly 3 robot names and their assigned delivery zones ("Downtown", "Suburbs", "Industrial") in a dictionary.\
+
 robots = {}
 zones = ["Downtown", "Suburbs", "Industrial"]
 
+
 for i in range(3):
-    name = input(f"Enter robot name: ").strip().title()
+    name = input("Enter robot name: ").strip().title()
+
     while True:
         zone = (
             input(
@@ -24,9 +27,11 @@ for i in range(3):
             .strip()
             .title()
         )
+
         if zone in zones:
             break
         print("Invalid zone. Choose from Downtown, Suburbs, or Industrial.")
+
     robots[name] = {"zone": zone}
 
 
@@ -40,7 +45,7 @@ while True:
         else:
             print("Error: Distance must be between 5 and 500 km.")
     except ValueError:
-        print("Error: Please enter a valid number.")
+        print("Error: Please enter a valid integer.")
 
 
 # Gets the cargo weight for each robot (between 1 and 50 kg).
@@ -54,11 +59,13 @@ for robot_name in robots:
             else:
                 print("Error: Weight must be between 1 and 50 kg.")
         except ValueError:
-            print("Error: Please enter a valid number.")
+            print("Error: Please enter a valid integer.")
 
 
-# Gets the weather condition ("Clear", "Rain", "Storm")
+# Gets the weather condition ("Clear", "Rain", "Storm").
 valid_weather = ["Clear", "Rain", "Storm"]
+
+
 while True:
     weather = input("Enter weather conditions (Clear, Rain, Storm): ").strip().title()
     if weather in valid_weather:
@@ -70,10 +77,14 @@ while True:
     else:
         print("Invalid weather condition.")
 
+
 print()
 
 
-# If distance is over 300 km, any robot carries more than 50 kg, or the weather is "Storm", print "🚨 Deployment Unsafe!". 
+# If distance is over 300 km, any robot carries more than 50 kg, or the weather is "Storm", print "🚨 Deployment Unsafe!".
+unsafe = False
+
+
 if distance > 300:
     unsafe = True
 
@@ -81,16 +92,16 @@ if distance > 300:
 if weather == "Storm":
     unsafe = True
 
+
 for robot in robots:
     if robots[robot]["weight"] > 50:
         unsafe = True
-5 and 500 km.")
-    except ValueError:
-        print("Error: Please enter a valid number.")
-
 
 
 # Otherwise, print a summary of robot names, zones, and cargo weights with the message: "🤖 Robots Ready for Delivery!".
-
-
-# Main program
+if unsafe:
+    print("🚨 Deployment Unsafe!")
+else:
+    for robot, data in robots.items():
+        print(f"{robot}: {data['zone']}, {data['weight']}kg")
+    print("🤖Robots Ready for Delivery!")
